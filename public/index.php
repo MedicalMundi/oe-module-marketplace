@@ -59,11 +59,6 @@ $response = routerMatch($request, $module->getContainer());
  */
 function routerMatch(ServerRequestInterface $request, ContainerInterface $container): ResponseInterface
 {
-    /** if ($request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/api/search/' ||
-        $request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/api/search') {
-        return (new ApiController($container->get(PackagistModuleFinder::class)))($request);
-    }*/
-
     if ($request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/public/index.php' ||
         $request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/public' ||
         $request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/public/' ||
