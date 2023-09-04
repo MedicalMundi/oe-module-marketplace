@@ -15,7 +15,7 @@ function oe_module_marketplace_add_menu_item(MenuEvent $event)
     $menuItem->url = "/interface/modules/custom_modules/oe-module-marketplace/public/index.php";
     $menuItem->children = [];
     $menuItem->acl_req = [];
-    $menuItem->global_req = [""];
+    $menuItem->global_req = [];
 
     foreach ($menu as $item) {
         if ($item->menu_id == 'modimg') {
