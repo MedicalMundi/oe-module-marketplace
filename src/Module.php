@@ -7,7 +7,7 @@ use Psr\Container\ContainerInterface;
 
 class Module
 {
-    public const MODULE_NAME = 'Marketplace';
+    public const MODULE_NAME = 'Modules Marketplace';
 
     public const MODULE_VERSION = 'v0.1.1';
 
