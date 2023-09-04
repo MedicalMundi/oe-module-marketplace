@@ -1,12 +1,10 @@
-{% extends 'layout-base-tbs5.html.twig' %}
+{% extends 'layout-base-tbs4.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container-fluid main-container" style="margin-top:50px">
 
         <div class="row justify-content-center">
-            <div class="col-5">
-             {{ include('packagist/_form.html.twig') }}
-            </div>
+             {{ include('packagist/_form-tbs4.html.twig') }}
         </div>
 
         <div class="my-5">
@@ -15,7 +13,7 @@
                 <small class="text-muted">- source: (packagist.org)</small>
             </h3>
             <div class="table-responsive">
-                <table id="availableModules" class="table table-striped table-hover">
+                <table id="availableModules" class=" table table-striped table-hover">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
