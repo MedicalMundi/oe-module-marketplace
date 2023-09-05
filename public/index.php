@@ -10,18 +10,16 @@
 use Laminas\HttpHandlerRunner\Emitter\SapiStreamEmitter;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
-
-
+use OpenEMR\Modules\Marketplace\Adapter\PackagistFinder\PackagistModuleFinder;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\AboutController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\DefaultController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\NotFoundController;
-use OpenEMR\Modules\Marketplace\Finder\PackagistModuleFinder;
 use OpenEMR\Modules\Marketplace\Module;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-
 use Twig\Environment;
+
 
 require __DIR__ . '/../src/Module.php';
 

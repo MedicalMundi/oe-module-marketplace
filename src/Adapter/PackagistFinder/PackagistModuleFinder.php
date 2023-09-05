@@ -1,9 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace OpenEMR\Modules\Marketplace\Finder;
+namespace OpenEMR\Modules\Marketplace\Adapter\PackagistFinder;
 
 use GuzzleHttp\Psr7\Request;
 use Http\Client\HttpClient;
+use OpenEMR\Modules\Marketplace\Application\ModuleFinder;
+use OpenEMR\Modules\Marketplace\Application\ModuleItemCollection;
+use OpenEMR\Modules\Marketplace\Application\PackagistItem;
+use OpenEMR\Modules\Marketplace\Application\PackagistItemCollection;
 use RuntimeException;
 
 class PackagistModuleFinder implements ModuleFinder

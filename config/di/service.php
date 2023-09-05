@@ -1,14 +1,12 @@
 <?php declare(strict_types=1);
 
 use Http\Discovery\HttpClientDiscovery;
-
-
-use OpenEMR\Modules\Marketplace\Adapter\Http\Web\AboutController;
+use OpenEMR\Modules\Marketplace\Adapter\PackagistFinder\PackagistModuleFinder;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\DefaultController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\NotFoundController;
-use OpenEMR\Modules\Marketplace\Finder\ModuleFinder;
-use OpenEMR\Modules\Marketplace\Finder\PackagistModuleFinder;
+use OpenEMR\Modules\Marketplace\Application\ModuleFinder;
 use Twig\Environment;
+
 
 return [
     PackagistModuleFinder::class => DI\create()

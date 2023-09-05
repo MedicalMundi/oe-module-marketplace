@@ -5,7 +5,7 @@ namespace OpenEMR\Modules\Marketplace;
 use DI\ContainerBuilder;
 use Psr\Container\ContainerInterface;
 
-class Module
+final class Module
 {
     public const MODULE_NAME = 'Modules Marketplace';
 
@@ -22,9 +22,15 @@ class Module
     public const LICENSE_URL = 'https://github.com/medicalmundi/oe-module-marketplace/blob/main/LICENSE';
 
     /**
-     * @var null|ContainerInterface
+     * @var ContainerInterface
+     *
+     * @psalm-suppress PropertyNotSetInConstructor
      */
-    protected $container = null;
+    protected $container;
+
+    private function __construct()
+    {
+    }
 
     public static function bootstrap(): self
     {

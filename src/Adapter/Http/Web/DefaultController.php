@@ -3,8 +3,7 @@
 namespace OpenEMR\Modules\Marketplace\Adapter\Http\Web;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
-
-use OpenEMR\Modules\Marketplace\Finder\ModuleFinder;
+use OpenEMR\Modules\Marketplace\Application\ModuleFinder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Twig\Environment;
