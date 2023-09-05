@@ -20,8 +20,12 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Url</th>
-                        <th scope="col">Downloads</th>
+                        <th scope="col"><i class="bi bi-box-arrow-up-right"></i></th>
+                        <th scope="col">
+                            <div>
+                                <i class="bi bi-download"></i>
+                            </div>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,7 +33,11 @@
                         <tr>
                             <td>#</td>
                             <td>{{ item.name }}</td>
-                            <td><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+                            <td>
+                                <a href="{{ item.url }}" target="_blank">
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+                            </td>
                             <td>{{ item.downloads }}</td>
                         </tr>
                     {% endfor %}
