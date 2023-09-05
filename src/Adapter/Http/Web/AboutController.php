@@ -27,6 +27,4 @@ class AboutController
 
         return $psr17Factory->createResponse(200)->withBody($responseBody);
     }
-
-
 }
