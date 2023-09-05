@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace OpenEMR\Modules\Marketplace\Finder;
+namespace OpenEMR\Modules\Marketplace\Application;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Webmozart\Assert\Assert;
