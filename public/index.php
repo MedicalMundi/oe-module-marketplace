@@ -12,6 +12,7 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 
 
+use OpenEMR\Modules\Marketplace\Adapter\Http\Web\AboutController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\DefaultController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\NotFoundController;
 use OpenEMR\Modules\Marketplace\Finder\PackagistModuleFinder;
@@ -68,6 +69,11 @@ function routerMatch(ServerRequestInterface $request, ContainerInterface $contai
         // TODO use container
         return (new DefaultController($container->get(PackagistModuleFinder::class), $container->get(Environment::class)))($request);
         //return ($container->get(DefaultController::class))($request);
+    }
+
+    if ($request->getUri()->getPath() === '/interface/modules/custom_modules/oe-module-marketplace/public/about') {
+
+        return ($container->get(AboutController::class))();
     }
 
     return ($container->get(NotFoundController::class))();

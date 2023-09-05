@@ -3,6 +3,7 @@
 use Http\Discovery\HttpClientDiscovery;
 
 
+use OpenEMR\Modules\Marketplace\Adapter\Http\Web\AboutController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\DefaultController;
 use OpenEMR\Modules\Marketplace\Adapter\Http\Web\NotFoundController;
 use OpenEMR\Modules\Marketplace\Finder\ModuleFinder;

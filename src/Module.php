@@ -17,6 +17,10 @@ class Module
 
     public const VENDOR_URL = 'https://github.com/medicalmundi';
 
+    public const LICENSE = 'MIT';
+
+    public const LICENSE_URL = 'https://github.com/medicalmundi/oe-module-marketplace/blob/main/LICENSE';
+
     /**
      * @var null|ContainerInterface
      */
