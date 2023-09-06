@@ -44,9 +44,9 @@ baseUrl: https://medicalmundi.github.io/oe-module-marketplace
 
 
 # Any variable you put in this file is also available in the Twig layouts:
-title: MedicalMundi - Modules Marketplace - Documentazione
+title: MedicalMundi - Modules Marketplace
 titleShort: Modules Marketplace
-subTitle: subtitle 'cool module'
+subTitle: documentation
 
 github:
   user: medicalmundi
@@ -63,4 +63,7 @@ menu:
           text: Quick start
           # You can use relative urls
           relativeUrl: developer-guide/quick-start.html
-
+        developer-tools:
+          text: Tools
+          # You can use relative urls
+          relativeUrl: developer-guide/developer-tools.html

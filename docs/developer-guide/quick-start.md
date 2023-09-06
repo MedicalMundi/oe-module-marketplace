@@ -1,6 +1,24 @@
-# Quick start [WIP]
+# Quick start
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et magna at ante semper pulvinar sed nec dolor.
-Donec volutpat sodales sem id blandit. Nullam sed arcu elit. Etiam tempor sed urna eget egestas.
-Quisque mollis, urna gravida fermentum congue, felis leo bibendum justo, ac elementum ligula risus in purus.
-Phasellus vel sapien vehicula, hendrerit tellus eu, hendrerit magna.
+1. For this project you need to have installed on your machine:
+
+    - Bash (same here, just try `bash --version` in a terminal).
+    - Git (run `git --version` to see if you already have it installed).
+    - A PHP IDE, preferably PhpStorm.
+
+
+2. Clone this project to your machine:
+
+    ```bash
+    git clone https://github.com/medicalmundi/oe-module-marketplace.git
+    ```
+
+3. Next, `cd` into the project directory and run:
+
+    ```bash
+    composer install
+    ```
+
+Now you are ready to work.
+
+
