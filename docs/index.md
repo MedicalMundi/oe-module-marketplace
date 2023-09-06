@@ -1,7 +1,8 @@
 
-# Index [WIP]
+# About Modules Marketplace
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et magna at ante semper pulvinar sed nec dolor.
-Donec volutpat sodales sem id blandit. Nullam sed arcu elit. Etiam tempor sed urna eget egestas.
-Quisque mollis, urna gravida fermentum congue, felis leo bibendum justo, ac elementum ligula risus in purus.
-Phasellus vel sapien vehicula, hendrerit tellus eu, hendrerit magna.
+This module provide a quick access to all  openemr module registered on packagist.org
+
+It allow you to explore the Openemr modules ecosystem.
+
+[//]: # (![alt text]&#40;./images/test-image.png&#41;)
