@@ -23,7 +23,7 @@ final class Module
 {
     public const MODULE_NAME = 'Modules Marketplace';
 
-    public const MODULE_VERSION = 'v0.1.3';
+    public const MODULE_VERSION = 'v0.1.4';
 
     public const MODULE_SOURCE_CODE = 'https://github.com/medicalmundi/oe-module-marketplace';
 
