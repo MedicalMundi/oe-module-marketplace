@@ -1,0 +1,6 @@
+version: '3.1'
+services:
+  openemr:
+    volumes:
+      - ../..:/openemr:rw
+      - ./../../../../oe-module-marketplace/:/oe-module-marketplace:rw
