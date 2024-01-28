@@ -90,6 +90,8 @@ jobs:
 
       - name: Install openEmr vendor dependencies
         run: composer install
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: list directory
         run: ls -al
@@ -113,6 +115,8 @@ jobs:
 
       - name: Add Module to openemr
         run: git clone https://github.com/medicalmundi/oe-module-todo-list.git -b ${{ steps.extract_branch.outputs.branch }} interface/modules/custom_modules/oe-module-todo-list
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check custom module directory
         run: |
@@ -125,3 +129,5 @@ jobs:
 
       - name: Install module in openEmr
         run: composer require medicalmundi/oe-module-todo-list
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
