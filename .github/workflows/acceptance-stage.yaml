@@ -15,7 +15,7 @@ env:
 
 jobs:
   check-composer-conflict-as-local-module:
-    name: Local Module conflict (php-${{ matrix.php }} openemr-${{ matrix.openemr }})
+    name: Module conflict (php-${{ matrix.php }} - ${{ matrix.openemr }})
     #if: ${{ github.ref_name == 'main' }}
     runs-on: ubuntu-22.04
     timeout-minutes: 20
@@ -24,18 +24,22 @@ jobs:
       max-parallel: 6
       matrix:
         openemr: [master, v7_0_2]
-        php: ['8.1']
+        php: ['8.1', '8.2']
         is-php-experimental: [false]
-      #        php:
-      #          - '8.1'
-      #        is-php-experimental: [false]
-      #        include:
-      #          - php: '8.1'
-      #            openemr: [v7_0_1_1, v7_0_1]
-      #            is-php-experimental: false
-      #          - php: '8.2'
-      #            openemr: [v7_0_1_1, v7_0_1]
-      #            is-php-experimental: true
+        include:
+          - php: '8.0'
+            openemr: 'v7_0_1_1'
+            is-php-experimental: false
+          - php: '8.0'
+            openemr: 'v7_0_1'
+            is-php-experimental: false
+          - php: '7.4'
+            openemr: 'v7_0_0_2'
+            is-php-experimental: false
+          - php: '7.4'
+            openemr: 'v7_0_0'
+            is-php-experimental: false
+
       fail-fast: false
     steps:
       - name: Setup php extension cache environment
@@ -98,9 +102,9 @@ jobs:
 
       - name: Install wikimedia/composer-merge-plugin package
         run: |
-          composer config --no-interaction allow-plugins.wikimedia/composer-merge-plugin true
-          composer require wikimedia/composer-merge-plugin
-          composer config --json extra.merge-plugin '{"include": "/var/www/localhost/htdocs/openemr/interface/modules/custom_modules/oe-module-todo-list/composer.json", "merge-dev": false, "merge-scripts": false }'
+          composer config --no-interaction allow-plugins.wikimedia/composer-merge-plugin true --ansi
+          composer require wikimedia/composer-merge-plugin --ansi
+          composer config --json extra.merge-plugin '{"include": "/var/www/localhost/htdocs/openemr/interface/modules/custom_modules/oe-module-marketplace/composer.json", "merge-dev": false, "merge-scripts": false }' --ansi
 
       - name: Composer info
         run: |
@@ -114,20 +118,22 @@ jobs:
         id: extract_branch
 
       - name: Add Module to openemr
-        run: git clone https://github.com/medicalmundi/oe-module-todo-list.git -b ${{ steps.extract_branch.outputs.branch }} interface/modules/custom_modules/oe-module-todo-list
+        run: git clone https://github.com/medicalmundi/oe-module-marketplace.git -b ${{ steps.extract_branch.outputs.branch }} interface/modules/custom_modules/oe-module-marketplace
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check custom module directory
         run: |
           ls -al interface/modules/custom_modules/
-          ls -al interface/modules/custom_modules/oe-module-todo-list
+          ls -al interface/modules/custom_modules/oe-module-marketplace
 
-      - name: Fix OpenEmr composer.json issues
-        run: |
-          composer update psr/cache:2.0.0
+#      - name: Fix OpenEmr composer.json issues
+#        run: |
+#          composer update psr/cache:2.0.0 --ansi
+#        env:
+#          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install module in openEmr
-        run: composer require medicalmundi/oe-module-todo-list
+        run: composer require medicalmundi/oe-module-marketplace --ansi
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
