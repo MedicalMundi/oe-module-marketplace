@@ -23,7 +23,7 @@ jobs:
     strategy:
       max-parallel: 6
       matrix:
-        openemr: [master, v7_0_2]
+        openemr: [master, v7_0_2, v7_0_2_1, v7_0_2_2, v7_0_2_3]
         php: ['8.1', '8.2']
         is-php-experimental: [false]
         include:
