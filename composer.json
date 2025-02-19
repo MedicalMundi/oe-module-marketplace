@@ -56,6 +56,13 @@
       "openemr/oe-module-installer-plugin": true,
       "php-http/discovery": false
     },
+    "audit": {
+      "abandoned": "report",
+      "ignore": {
+        "CVE-2024-51754": "Unguarded calls to __toString() when nesting an object into an array",
+        "CVE-2024-51755": "Unguarded calls to __isset() and to array-accesses when the sandbox is enabled"
+      }
+    },
     "preferred-install": {
       "*": "dist"
     },
