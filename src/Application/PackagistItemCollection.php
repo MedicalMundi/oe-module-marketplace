@@ -27,7 +27,6 @@ class PackagistItemCollection implements ModuleItemCollection
     private $collection;
 
     /**
-     * PackagistItemCollection constructor.
      * @param iterable <PackagistItem> $collection
      */
     public function __construct(iterable $collection = [])

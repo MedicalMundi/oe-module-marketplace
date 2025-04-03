@@ -33,10 +33,6 @@ class PackagistModuleFinder implements ModuleFinder
      */
     private $httpClient;
 
-    /**
-     * PackagistModuleFinder constructor.
-     * @param HttpClient $httpClient
-     */
     public function __construct(HttpClient $httpClient = null)
     {
         $this->httpClient = $httpClient;
@@ -58,7 +54,7 @@ class PackagistModuleFinder implements ModuleFinder
 
     public function endpoint(string $queryString = ''): string
     {
-        return sprintf('https://%s/search.json?q=%s&type=openemr-module', self::HOST, $queryString);
+        return \sprintf('https://%s/search.json?q=%s&type=openemr-module', self::HOST, $queryString);
     }
 
     /**
