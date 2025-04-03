@@ -14,8 +14,8 @@ env:
   PHP_EXTENSIONS_CACHE_KEY: cache-php-extensions-v1
 
 jobs:
-  unit-test:
-    name: Unit tests (php-${{ matrix.php }})
+  unit-test-optimized:
+    name: Unit tests (php-${{ matrix.php }} - ${{ matrix.dependencies }})
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     continue-on-error: ${{ matrix.is-php-experimental }}
@@ -24,6 +24,14 @@ jobs:
       matrix:
         php:
           - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+          - '8.3'
+        dependencies:
+          - "lowest"
+          - "highest"
         is-php-experimental: [false]
         generate-coverage-report: [false]
         include:
@@ -74,25 +82,30 @@ jobs:
           ini-values: memory_limit=-1
           coverage: pcov
 
-      - name: Set Composer Cache Directory
-        if: ${{ vars.USE_COMPOSER_CACHE }}
-        id: composer-cache
-        run: |
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache Composer dependencies
-        uses: actions/cache@v4
-        if: ${{ vars.USE_COMPOSER_CACHE }}
+      - name: Install composer deps.
+        uses: ramsey/composer-install@v3
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-${{ matrix.php }}-composer-
+          dependency-versions: ${{ matrix.dependencies }}
 
-      - name: Install dependencies
-        run: |
-          composer install --prefer-dist --no-progress --ansi
-        continue-on-error: ${{ matrix.is-php-experimental }}
+#      - name: Set Composer Cache Directory
+#        if: ${{ vars.USE_COMPOSER_CACHE }}
+#        id: composer-cache
+#        run: |
+#          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+#
+#      - name: Cache Composer dependencies
+#        uses: actions/cache@v4
+#        if: ${{ vars.USE_COMPOSER_CACHE }}
+#        with:
+#          path: ${{ steps.composer-cache.outputs.dir }}
+#          key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-php-${{ matrix.php }}-composer-
+#
+#      - name: Install dependencies
+#        run: |
+#          composer install --prefer-dist --no-progress --ansi
+#        continue-on-error: ${{ matrix.is-php-experimental }}
 
       - name: Run unit tests
         run: |
@@ -123,7 +136,6 @@ jobs:
         with:
           name: ${{ steps.test-doc-artifact-name.outputs.name }}
           path: ${{ vars.UNIT_TEST_DOC_FILENAME }}
-
 
 
   checks-composer:
