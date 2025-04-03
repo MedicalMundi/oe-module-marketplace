@@ -45,7 +45,7 @@ class PackagistItemCollectionTest extends TestCase
     public function can_be_created_with_data(): void
     {
         $data = [
-            packagistItem::create(
+            PackagistItem::create(
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
@@ -65,14 +65,14 @@ class PackagistItemCollectionTest extends TestCase
     public function can_count_internal_elements(): void
     {
         $data = [
-            packagistItem::create(
+            PackagistItem::create(
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 10
             ),
-            packagistItem::create(
+            PackagistItem::create(
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
@@ -92,14 +92,14 @@ class PackagistItemCollectionTest extends TestCase
     public function can_return_elements_as_array(): void
     {
         $data = [
-            packagistItem::create(
+            PackagistItem::create(
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 10
             ),
-            packagistItem::create(
+            PackagistItem::create(
                 self::IRRELEVANT,
                 self::IRRELEVANT,
                 self::IRRELEVANT,
